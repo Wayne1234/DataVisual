@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/handsontable.full.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script src="js/handsontable.full.js"></script>
+    <script src="js/echarts.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+
+        html {
+            overflow: hidden;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        html {
+            overflow-y: hidden;
+        }
+
+        #main-container {
+            background-color: #0e151f;
+            width: 100%;
+            height: 100%;
+        }
+
+        #outer {
+            padding: 50px;
+            height: 100%;
+            width: 100%;
+            background-color: #eeeeee;
+        }
+
+        #graph-container {
+            /*margin-top: 50px;*/
+        }
+
+        #right-container {
+            position: fixed;
+            right: 0;
+            bottom: 60px;
+            width: 40%;
+            /*height: 50%;*/
+            background-color: transparent;
+        }
+
+        #btn-container {
+            position: fixed;
+            right: 0;
+            bottom: 20px;
+            padding-right: 20px;
+            width: 40%;
+            /*background-color: #0e151f;*/
+            z-index: 100;
+        }
+
+        #table-container {
+            border: 2px solid gray;
+            background-color: transparent;
+        }
+
+        #toggle-btn, #gen-table-btn{
+            width: 100px;
+            bottom: 20px;
+            text-align: center;
+            font-family: "Microsoft YaHei UI",serif;
+            float: right;
+            background-color: transparent;
+            border: none;
+            color: #555555;
+            cursor: pointer;
+        }
+         #gen-table-btn:hover{
+            color: #c7c7c7;
+        }
+    </style>
+</head>
+<body>
+<div id="main-container">
+    <div id="outer">
+        <div id="graph-container" style="width: 100%;height:100%;">
+            <div id="graph" style="width: 100%;height:100%;"></div>
+        </div>
+    </div>
+
+    <div id="btn-container">
+        <div id="toggle-btn">显示/隐藏表格</div>
+        <div id="gen-table-btn" onclick="genGraph()">生成图表</div>
+    </div>
+
+    <div id="right-container">
+        <div id="table-container">
+            <div id="h-table" style="width: 100%; height: 400px; overflow: hidden"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#toggle-btn").click(function () {
+            $("#right-container").toggle();
+        });
+    });
+</script>
+<script src="js/index.js"></script>
+</body>
+</html>
