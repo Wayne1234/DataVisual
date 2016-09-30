@@ -2,114 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>Data Art</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/handsontable.full.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <script src="js/jquery.js"></script>
     <script src="js/handsontable.full.js"></script>
     <script src="js/echarts.js"></script>
     <style>
-        html, body {
-            margin: 0;
-            height: 100%;
-        }
 
-        html {
-            overflow: hidden;
-        }
-
-        html {
-            overflow-x: hidden;
-        }
-
-        html {
-            overflow-y: hidden;
-        }
-
-        #main-container {
-            background-color: #0e151f;
-            width: 100%;
-            height: 100%;
-        }
-
-        #outer {
-            padding: 50px;
-            height: 100%;
-            width: 100%;
-            background-color: #eeeeee;
-        }
-
-        #graph-container {
-            /*margin-top: 50px;*/
-        }
-
-        #right-container {
-            position: fixed;
-            right: 0;
-            bottom: 60px;
-            width: 40%;
-            /*height: 50%;*/
-            background-color: transparent;
-        }
-
-        #btn-container {
-            position: fixed;
-            right: 0;
-            bottom: 20px;
-            padding-right: 20px;
-            width: 40%;
-            /*background-color: #0e151f;*/
-            z-index: 100;
-        }
-
-        #table-container {
-            border: 2px solid gray;
-            background-color: transparent;
-        }
-
-        #toggle-btn, #gen-table-btn{
-            width: 100px;
-            bottom: 20px;
-            text-align: center;
-            font-family: "Microsoft YaHei UI",serif;
-            float: right;
-            background-color: transparent;
-            border: none;
-            color: #555555;
-            cursor: pointer;
-        }
-         #gen-table-btn:hover{
-            color: #c7c7c7;
-        }
     </style>
 </head>
-<body>
+<body onload="genGraph()">
 <div id="main-container">
     <div id="outer">
         <div id="graph-container" style="width: 100%;height:100%;">
             <div id="graph" style="width: 100%;height:100%;"></div>
         </div>
     </div>
-    <!--TODO：用li标签来作为按钮组，要兼容弹出式按钮组-->
-    <div id="btn-container">
-        <div id="toggle-btn">显示/隐藏表格</div>
-        <div id="gen-table-btn" onclick="genGraph()">生成图表</div>
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="background-color: transparent;border:none">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand"><span class="logo-blue">Data</span> <span class="logo-yellow">Art</span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropup">
+                        <a class="dropdown-toggle" data-toggle="dropdown">更多图表<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" style="background-color: #f3f3f3">
+                            <li><a onclick="genGraph2()">Graph1</a></li>
+                            <li><a>Graph2</a></li>
+                            <li><a>Graph3</a></li>
+                            <li class="divider"></li>
+                            <li><a>Graph4</a></li>
+                        </ul>
+                    </li>
+                    <!--TODO:解决图表切换问题，所有图表都要有一个初始页面，由一个js管理生成图表的onclick事件-->
+                    <li><a class="bottom-options" onclick="genGraph()">生成图表</a></li>
+                    <li><a class="bottom-options" id="graph-settings">图表设置</a></li>
+                    <li><a class="bottom-options" id="toggle-option">显示/隐藏表格</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div id="right-container2" style="display: none">
+        <div id="setting-container">
+            <div style="width: 100%; height: 400px; overflow: hidden;background-color: #0e151f">
+                <ul>
+                    <li>图表标题</li>
+                    <li>配色方案:单色，渐变，彩色1，彩色2</li>
+                    <li>...</li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <div id="right-container">
+    <div id="right-container" style="display: none">
         <div id="table-container">
-            <div id="h-table" style="width: 100%; height: 400px; overflow: hidden"></div>
+            <div id="h-table" style="width: 100%; height: 400px; overflow: hidden;"></div>
         </div>
     </div>
 </div>
 
 <script>
     $(document).ready(function () {
-        $("#toggle-btn").click(function () {
-            $("#right-container").toggle();
+        $("#toggle-option").click(function () {
+            var rContainer=$("#right-container");
+            rContainer.slideToggle(200);
+            document.getElementById("right-container2").style.display="none";
+        });
+        $("#graph-settings").click(function () {
+            var rContainer2=$("#right-container2");
+            rContainer2.slideToggle(200);
+            document.getElementById("right-container").style.display="none";
         });
     });
 </script>
 <script src="js/index.js"></script>
+<script src="js/bootstrap.js"></script>
 </body>
 </html>
