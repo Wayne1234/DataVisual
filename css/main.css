@@ -1,0 +1,77 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+html {
+    overflow: hidden;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+html {
+    overflow-y: hidden;
+}
+
+#main-container {
+    background-color: #0e151f;
+    width: 100%;
+    height: 100%;
+}
+
+#outer {
+    padding: 50px;
+    height: 100%;
+    width: 100%;
+    background-color: #eeeeee;
+}
+
+#graph-container {
+    /*margin-top: 50px;*/
+}
+
+#right-container,#right-container2 {
+    opacity: 0.8;
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+    width: 40%;
+    /*height: 50%;*/
+    background-color: transparent;
+}
+
+#table-container,#setting-container {
+    border: 2px solid gray;
+    background-color: transparent;
+}
+
+.bottom-options,.dropup,.navbar-header{
+    cursor: pointer;
+    font-family: 微软雅黑,serif;
+}
+.navbar-brand{
+    font-family: 微软雅黑,serif;
+    font-weight: bold;
+}
+.logo-blue{
+    color: #1c3f66;
+}
+.logo-yellow{
+    color: #f2d22e;
+}
+li:hover{
+    background-color: transparent;
+    color: #2a6496;
+}
+.dropdown-menu > li > a {
+    color: #898989;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    color: #1c3f66;
+    text-decoration: none;
+    background-color: white;
+}
